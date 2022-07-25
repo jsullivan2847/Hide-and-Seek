@@ -22,3 +22,11 @@ button{
 input{
   border-radius: 10px;
 }
+.list{
+  text-align: left;
+  max-width: 300px;
+  text-decoration: underline red;
+}
+.to-do{
+  background-color: rgb(228, 217, 103);
+}
