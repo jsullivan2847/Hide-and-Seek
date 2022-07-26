@@ -56,6 +56,18 @@ overflow: hidden;
   cursor: pointer;
 }
 
+.how-to{
+  margin: 0 auto;
+  position: fixed;
+  top: 35vh;
+  left: 10vw;
+  /* transform: translate(-50%, -50%); */
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  z-index: 100;
+}
+
 @media screen and (max-width: 769px){
   #ny{
     margin: 0 ;

@@ -1,12 +1,23 @@
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
+import Modal from "./Modal";
+import { useState } from "react";
 const Menu = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className="page">
       <div className="nav">
         <img id="menu-logo" src="../images/Logo.png" alt="" />
         <div className="btn-group">
           <Button text='How to Play'/>
-          <Button text='Play' />
+          <Link to="/play">
+            <Button text='Play' />
+          </Link>
+          <button onClick={() => setIsOpen(true)}>Open Modal</button>
+          <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            Modal
+          </Modal>
         </div>
       </div>
       <img id="binoc" src="../images/binoculars.png" alt="" />
