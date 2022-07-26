@@ -1,18 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import Test from './components/Test'
-import ToDo from './components/ToDo';
-import Challenge from './components/Challenge';
+import Menu from './pages/Menu';
+import { Route } from 'react-router-dom';
+
 
 function App() {
 
 
   return (
     <div className="App"> 
-    {/* <Challenge/> */}
-    <ToDo/>
-    {/* <Test/> */}
+    <Route exact path={'/'}>
+    <Menu/>
+    </Route>
     </div>
   );
 }

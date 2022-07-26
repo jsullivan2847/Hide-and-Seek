@@ -1,32 +1,35 @@
+:root{
+  --yellow: rgb(225,229,30);
+}
 .App {
+  height: 100vh;
+  width: 100vw;
   text-align: center;
-  background-color: aqua;
   font-family: poppins;
+}
+body{
+  height: 100%;
+  width: 100vh;
+  background-color: var(--yellow);
 }
 
-.container form{
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 20%;
-  height: 200px;
-  align-items: center;
+#ny{
+margin: 0 500px 20px 20px;
+min-width: 320px;
+width: 769px; 
+overflow: hidden;
 }
-button{
-  background-color: aquamarine;
-  font-family: poppins;
-  border: 1px solid blue;
-  border-radius: 10px;
+
+#menu-logo{
+  margin-right: 1000px;
+  margin-left: 20px;
+  max-width: 320px;
 }
-input{
-  border-radius: 10px;
+
+@media screen and (max-width: 769px){
+  #ny{
+    margin: 0 ;
+    width: 100vw; 
+  }
 }
-.list{
-  text-align: left;
-  max-width: 300px;
-  text-decoration: underline red;
-}
-.to-do{
-  background-color: rgb(228, 217, 103);
-}
+
