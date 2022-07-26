@@ -12,17 +12,26 @@ body{
   width: 100vh;
   background-color: var(--yellow);
 }
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 #ny{
-margin: 0 500px 20px 20px;
+margin-left: 20px;
 min-width: 320px;
 width: 769px; 
 overflow: hidden;
 }
-
-#menu-logo{
-  margin-right: 1000px;
+.nav{
   margin-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+#menu-logo{
   max-width: 320px;
 }
 #binoc{
@@ -31,6 +40,20 @@ overflow: hidden;
   right:0;
   top: -100px;
   position: absolute;
+}
+.btn-group{
+  margin-right: 60px;
+}
+.btn{
+  margin-left: 12px;
+  width: 152px;
+  height: 52px;
+  border-radius: 5px;
+  font-family: poppins;
+}
+.btn:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 769px){
@@ -43,6 +66,13 @@ overflow: hidden;
   }
   #menu-logo{
     margin: 0 auto;
+  }
+  .nav{
+    flex-direction: column;
+  }
+  .btn-group{
+    top: 300px;
+    position: absolute;
   }
 }
 
