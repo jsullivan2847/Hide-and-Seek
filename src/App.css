@@ -25,11 +25,29 @@ overflow: hidden;
   margin-left: 20px;
   max-width: 320px;
 }
+#binoc{
+
+  z-index: -1;
+  right:0;
+  top: -100px;
+  position: absolute;
+}
 
 @media screen and (max-width: 769px){
   #ny{
     margin: 0 ;
     width: 100vw; 
   }
+  #binoc{
+    display: none;
+  }
+  #menu-logo{
+    margin: 0 auto;
+  }
 }
 
+@media screen and (max-width: 1350px){
+  #binoc{
+    width: 75%;
+  }
+}
