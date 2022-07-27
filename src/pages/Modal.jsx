@@ -2,7 +2,8 @@ import { ReactDOM, useState } from "react";
 
 
 const Modal = ({open, onClose, children}) => {
-    const [image, setImage] = useState('../images/Instructions_1.png')
+    const instructions = ['../images/Instructions_1.png', '../images/Instructions_2.png']
+    const [image, setImage] = useState(instructions[0])
 
     // const Modal_Styles = {
     //     position: 'fixed',
@@ -13,9 +14,12 @@ const Modal = ({open, onClose, children}) => {
     //     zIndex: 100
     // }
     function handleClick(){
-        setImage('../images/Instructions_2.png')
-        if(image === '../images/Instructions_2.png' ){
-            onClose();
+        if(image === instructions[0]){
+            setImage(instructions[1])
+        }
+        else{
+            setImage(instructions[0])
+            onClose()
         }
     }
     const Overlay_Styles = {
