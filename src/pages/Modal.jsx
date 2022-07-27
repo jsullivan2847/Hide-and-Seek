@@ -1,7 +1,8 @@
-import { ReactDOM } from "react";
+import { ReactDOM, useState } from "react";
 
 
 const Modal = ({open, onClose, children}) => {
+    const [image, setImage] = useState('../images/Instructions_1.png')
 
     // const Modal_Styles = {
     //     position: 'fixed',
@@ -11,6 +12,12 @@ const Modal = ({open, onClose, children}) => {
     //     backgroundColor: 'white',
     //     zIndex: 100
     // }
+    function handleClick(){
+        setImage('../images/Instructions_2.png')
+        if(image === '../images/Instructions_2.png' ){
+            onClose();
+        }
+    }
     const Overlay_Styles = {
         height: '100vh',
         width: '100vw',
@@ -28,11 +35,11 @@ const Modal = ({open, onClose, children}) => {
         return <></>
     }
     else{
+
         return (
             <div style={Overlay_Styles}>
-                <div className="how-to">
-                <h1>{children}</h1>
-                <button onClick={onClose}>Close Modal</button>
+                <div onClick={handleClick}className="how-to">
+                    <img src={image} alt=""/>
             </div>
             </div>
         )

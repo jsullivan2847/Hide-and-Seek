@@ -10,11 +10,10 @@ const Menu = () => {
       <div className="nav">
         <img id="menu-logo" src="../images/Logo.png" alt="" />
         <div className="btn-group">
-          <Button text='How to Play'/>
+          <Button  setIsOpen={() => setIsOpen(true)} text='How to Play'/>
           <Link to="/play">
             <Button text='Play' />
           </Link>
-          <button onClick={() => setIsOpen(true)}>Open Modal</button>
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>
             Modal
           </Modal>
