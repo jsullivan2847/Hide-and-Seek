@@ -8,6 +8,8 @@ const GamePlay = () => {
         return <h1>loading</h1>;
       };
 
+    console.log(Status.FAILURE)
+
     return (
         <div>
             <Wrapper apiKey={key} render={render}>

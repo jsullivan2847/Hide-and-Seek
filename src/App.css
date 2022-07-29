@@ -56,25 +56,13 @@ overflow: hidden;
   cursor: pointer;
 }
 
-/* .how-to{
-  margin: 0 auto;
-  padding-top: 2%;
-  position: fixed;
-  top: 5%;
-  left: 25%;
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
-  border-radius: 5px;
-}
-.how-to img{
-  margin: 0 auto;
-  width: inherit;
-  z-index: 101;
-} */
 .how-to{
   margin-top: 200px;
+}
+.map{
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
 }
 
 
