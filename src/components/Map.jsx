@@ -18,7 +18,8 @@ export default function Map() {
     if(ref.current && !map){
       setMap(new window.google.maps.Map(ref.current, {
         center: {lat: 42.345573, lng: -71.098326},
-        zoom: 8
+        zoom: 8,
+        fullscreenControl: false,
       }));
 
       setStreetView(new window.google.maps.StreetViewPanorama(streetRef.current, {
@@ -26,7 +27,9 @@ export default function Map() {
         pov: {
           heading: 34,
           pitch: 10,
-        }
+        },
+        fullscreenControl: false,
+        addressControl: false,
       }))
     }
 
