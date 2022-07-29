@@ -56,22 +56,27 @@ overflow: hidden;
   cursor: pointer;
 }
 
-.how-to{
+/* .how-to{
+  margin: 0 auto;
   padding-top: 2%;
   position: fixed;
   top: 5%;
   left: 25%;
   background-color: white;
-  height: fit-content;
-  width: 50%;
+  height: 100%;
+  width: 100%;
   z-index: 100;
   border-radius: 5px;
 }
 .how-to img{
   margin: 0 auto;
-  width: 95%;
+  width: inherit;
   z-index: 101;
+} */
+.how-to{
+  margin-top: 200px;
 }
+
 
 @media screen and (max-width: 769px){
   #ny{

@@ -42,9 +42,7 @@ const Modal = ({open, onClose, children}) => {
 
         return (
             <div style={Overlay_Styles}>
-                <div onClick={handleClick}className="how-to">
-                    <img src={image} alt=""/>
-            </div>
+                    <img className="how-to" onClick={handleClick} src={image} alt=""/>
             </div>
         )
     }
