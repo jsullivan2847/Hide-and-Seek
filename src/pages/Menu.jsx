@@ -5,6 +5,9 @@ import { useState } from "react";
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false)
 
+
+
+
   return (
     <div className="page">
       <div className="nav">
