@@ -71,6 +71,14 @@ overflow: hidden;
   height:20%;
   
 }
+.map-active{
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 80vh;
+}
 .streetview{
   height: 100vh;
 }

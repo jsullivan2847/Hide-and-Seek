@@ -11,6 +11,8 @@ export default function Map() {
   const [map, setMap] = useState(null);
   const [streetView, setStreetView] = useState(null)
 
+  const [mapActive, setMapActive] = useState(false)
+
 
   useEffect(() => {
     //if there is an element to put it into, and there is no map yet 
@@ -34,6 +36,15 @@ export default function Map() {
     }
 
   }, [ref,map]);
+
+  function handleMapClick(event){
+    if(mapActive === false){
+      setMapActive(true)
+    }
+    else if(mapActive === true){
+      setMapActive(false)
+    }
+  }
   //finally if map and ref are truthy - don't do this again. Ref allows the map to persist even on 
   //re renders 
 
@@ -41,7 +52,7 @@ export default function Map() {
   return (
     <div className='maps-container'>
       <div className='streetview'ref={streetRef}></div>
-       <div className='map'ref={ref}></div>
+       <div onClick={handleMapClick} className={mapActive ? 'map-active' : 'map'}ref={ref}></div>
     </div>
 
   )
