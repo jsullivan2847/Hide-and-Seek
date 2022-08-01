@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function AltMap({position}) {
+
+    const [map,setMap] = useState(null)
+    
     const [mapActive, setMapActive] = useState(false)
     const mapOptions = {
         disableDefaultUI: true,
@@ -32,10 +35,17 @@ export default function AltMap({position}) {
         
     }
 
+    const control = () => {
+        const controlDiv = document.createElement('div')
+        controlDiv.setAttribute('class', 'timer')
+        controlDiv.addEventListener('click', () => {
+            console.log('clicky')
+    })
+    }
+
     return (
         <div>
             <GoogleMap
-            streetView={true}
             zoom={10}
             mapContainerClassName='streetview'
             center={position}>
@@ -51,9 +61,10 @@ export default function AltMap({position}) {
             options={mapOptions}
             onClick={handleClick}
             mapContainerClassName={mapActive ? 'map-active' : 'map'}
-             zoom={10} 
-             center={position}>
+            zoom={10} 
+            center={position}>
                 <Marker position={position}/>
+
             </GoogleMap>
         </div>
     )
