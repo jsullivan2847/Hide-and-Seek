@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function AltMap({position}) {
@@ -7,11 +7,18 @@ export default function AltMap({position}) {
     const [choice, setChoice] = useState(position)
     
     const [mapActive, setMapActive] = useState(false)
+
+    const control = () => {
+        return (
+            <div><h1>hello</h1></div>
+        )
+    }
+
     const mapOptions = {
         disableDefaultUI: true,
         mapTypeControl: true,
         mapTypeControlOptions: {
-            style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU
+            style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU,
         },
         clickableIcons: false,
     }
@@ -36,13 +43,11 @@ export default function AltMap({position}) {
         
     }
 
-    const control = () => {
-        const controlDiv = document.createElement('div')
-        controlDiv.setAttribute('class', 'timer')
-        controlDiv.addEventListener('click', () => {
-            console.log('clicky')
-    })
-    }
+    const mapLoad = useCallback((map: google.maps.Map) => {
+        console.log('map.data', map.data)
+        setMap(map)
+    }, [])
+
 
     return (
         <div>
@@ -59,11 +64,13 @@ export default function AltMap({position}) {
 
 
             <GoogleMap 
+            onLoad={mapLoad}
             options={mapOptions}
             onClick={handleClick}
             mapContainerClassName={mapActive ? 'map-active' : 'map'}
             zoom={10} 
-            center={position}>
+            center={position}
+            control={control}>
                 <Marker position={choice}/>
 
             </GoogleMap>
