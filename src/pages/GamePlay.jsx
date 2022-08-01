@@ -1,6 +1,5 @@
 import Timer from "../components/Timer";
 import AltMap from "../components/AltMap";
-import { Wrapper, Status} from '@googlemaps/react-wrapper';
 import {useLoadScript} from '@react-google-maps/api'
 const GamePlay = () => {
 
@@ -22,6 +21,7 @@ const GamePlay = () => {
 
     return (
         <div>
+            <Timer/>
             <AltMap position={position}/>
         </div>
         
