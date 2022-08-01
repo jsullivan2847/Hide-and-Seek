@@ -1,9 +1,7 @@
-import Map from "../components/Map";
-import Marker from "../components/Marker";
 import Timer from "../components/Timer";
 import AltMap from "../components/AltMap";
 import { Wrapper, Status} from '@googlemaps/react-wrapper';
-import { useLoadScript } from '@react-google-maps/api'
+import {useLoadScript} from '@react-google-maps/api'
 const GamePlay = () => {
 
     // const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
@@ -24,13 +22,7 @@ const GamePlay = () => {
 
     return (
         <div>
-            {/* <Timer/> */}
-            {/* <Wrapper apiKey={key} render={render}>
-                <Map position={position}>
-                <Marker key='1'position={position}/>
-                </Map>
-            </Wrapper> */}
-            <AltMap/>
+            <AltMap position={position}/>
         </div>
         
     )

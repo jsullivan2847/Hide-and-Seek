@@ -1,5 +1,4 @@
 import {useEffect, useState, React, useRef} from 'react'
-import Marker from './Marker';
 
 
 export default function Map({position}) {
@@ -60,10 +59,7 @@ export default function Map({position}) {
       setMapActive(true)
       streetView.visible = false
     }
-    if(mapActive === true){
-      console.log('clicked')
-      return <Marker position={position}/>
-    }
+    
   }
   function handleStreetClick(event) {
     if(mapActive === true){
