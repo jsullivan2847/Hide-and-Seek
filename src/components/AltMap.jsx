@@ -10,11 +10,17 @@ export default function AltMap({position}) {
     
     const [mapActive, setMapActive] = useState(false)
 
-    const control = () => {
-        return (
-            <div className='control'><h1>hello</h1></div>
-        )
-    }
+    //can't figure out how to do this with jsx but I guess it's not
+    //the end of the world.
+    const controlDiv = document.createElement('div')
+    controlDiv.innerText = '-'
+    controlDiv.setAttribute('class', 'control')
+    controlDiv.addEventListener('click', () => {
+        setMapActive(false)
+    })
+   
+
+
 
     const mapOptions = {
         disableDefaultUI: true,
@@ -35,8 +41,10 @@ export default function AltMap({position}) {
     function handleClick(event){
         if(!mapActive){
             setMapActive(true)
+            controlDiv.setAttribute('class', 'control')
         }
         else{
+            controlDiv.setAttribute('class', 'green')
             setChoice({
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
@@ -49,9 +57,7 @@ export default function AltMap({position}) {
 
 
     const mapLoad = useCallback((map: google.maps.Map) => {
-        const controlDiv = document.createElement('div')
-        controlDiv.setAttribute('class', 'control')
-        map.data.map.controls[google.maps.ControlPosition.TOP_CENTER].push(controlDiv)
+        map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
         console.log('map data', map.data.map.controls)
         
         setMap(map)
@@ -79,8 +85,7 @@ export default function AltMap({position}) {
             onClick={handleClick}
             mapContainerClassName={mapActive ? 'map-active' : 'map'}
             zoom={10} 
-            center={position}
-            control={control}>
+            center={position}>
                 <Marker position={choice}/>
 
             </GoogleMap>
