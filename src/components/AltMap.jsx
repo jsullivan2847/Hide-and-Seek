@@ -4,6 +4,7 @@ import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 export default function AltMap({position}) {
 
     const [map,setMap] = useState(null)
+    const [choice, setChoice] = useState(position)
     
     const [mapActive, setMapActive] = useState(false)
     const mapOptions = {
@@ -27,7 +28,7 @@ export default function AltMap({position}) {
             setMapActive(true)
         }
         else{
-            console.log({
+            setChoice({
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
             })
@@ -63,7 +64,7 @@ export default function AltMap({position}) {
             mapContainerClassName={mapActive ? 'map-active' : 'map'}
             zoom={10} 
             center={position}>
-                <Marker position={position}/>
+                <Marker position={choice}/>
 
             </GoogleMap>
         </div>
