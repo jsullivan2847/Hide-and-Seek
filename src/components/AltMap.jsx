@@ -1,4 +1,6 @@
 import React, { useCallback, useState } from 'react'
+import Button from './Button'
+
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function AltMap({position}) {
@@ -10,7 +12,7 @@ export default function AltMap({position}) {
 
     const control = () => {
         return (
-            <div><h1>hello</h1></div>
+            <div className='control'><h1>hello</h1></div>
         )
     }
 
@@ -43,9 +45,17 @@ export default function AltMap({position}) {
         
     }
 
+
+
+
     const mapLoad = useCallback((map: google.maps.Map) => {
-        console.log('map.data', map.data)
+        const controlDiv = document.createElement('div')
+        controlDiv.setAttribute('class', 'control')
+        map.data.map.controls[google.maps.ControlPosition.TOP_CENTER].push(controlDiv)
+        console.log('map data', map.data.map.controls)
+        
         setMap(map)
+
     }, [])
 
 

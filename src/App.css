@@ -120,6 +120,11 @@ overflow: hidden;
     width: 90%;
     height: fit-content;
   }
+  .control{
+    height: 50px;
+    width: 50px;
+    background-color: red;
+  }
 
 }
 
