@@ -83,6 +83,17 @@ overflow: hidden;
   height: 100vh;
 }
 
+.timer{
+  top: 30px;
+  left: 40%;
+  height: 50px;
+  width: 20vw;
+  min-width: 175px;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--yellow);
+}
+
 
 
 @media screen and (max-width: 769px){

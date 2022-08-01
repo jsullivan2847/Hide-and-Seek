@@ -82,7 +82,6 @@ export default function Map({position}) {
     <div className='maps-container'>
       <div onClick={handleStreetClick}className='streetview'ref={streetRef}></div>
        <div onClick={handleMapClick} className={mapActive ? 'map-active' : 'map'}ref={ref}></div>
-       <Marker position={position}/>
     </div>
 
   )
