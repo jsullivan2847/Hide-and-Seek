@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
-import { GoogleMap, Marker} from '@react-google-maps/api'
+import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function AltMap({position}) {
     const [mapActive, setMapActive] = useState(false)
-    const options = {
-       
+    const mapOptions = {
         disableDefaultUI: true,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU
         },
         clickableIcons: false,
+    }
+    const streetOptions = { 
+        disableDefaultUI: true,
+        showRoadLabels: false,
+        clickToGo: true, 
+        enableScrollWheel: false,
+        enableCloseButton: false,
     }
 
     function handleClick(event){
@@ -28,8 +34,21 @@ export default function AltMap({position}) {
 
     return (
         <div>
+            <GoogleMap
+            streetView={true}
+            zoom={10}
+            mapContainerClassName='streetview'
+            center={position}>
+               <StreetViewPanorama
+               visible={true}
+               position={position}
+               options={streetOptions}>
+               </StreetViewPanorama>
+            </GoogleMap>
+
+
             <GoogleMap 
-            options={options}
+            options={mapOptions}
             onClick={handleClick}
             mapContainerClassName={mapActive ? 'map-active' : 'map'}
              zoom={10} 
