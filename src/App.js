@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import Menu from './pages/Menu';
 import GamePlay from './pages/GamePlay';
 import { Route } from 'react-router-dom';
