@@ -1,6 +1,7 @@
 import Timer from "../components/Timer";
 import AltMap from "../components/AltMap";
 import {useLoadScript} from '@react-google-maps/api'
+import { useState, useEffect } from "react";
 const GamePlay = () => {
 
     // const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
@@ -10,7 +11,23 @@ const GamePlay = () => {
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: 'AIzaSyBrL26kHgHcE6O9YC-F7mbxCXhwscpSsdA',
     });
-    if(!isLoaded) return <div>Loading...</div>
+
+    const [seconds, setSeconds] = useState(3);
+    const [active, setActive] = useState(false)
+  
+    useEffect(() => {
+      if(active && seconds > 0){
+        const timer = setInterval(() => setSeconds(seconds -1), 1000);
+        if(seconds >= 0){
+          setActive(true)
+        }
+        return () => clearInterval(timer);
+      }
+    }, [seconds])
+  
+
+
+    
 
     //This function 
     // const render = (status: Status): ReactElement => {
@@ -18,9 +35,14 @@ const GamePlay = () => {
     //     return <h1>loading</h1>;
     //   }; 
 
+    //starting timer
 
+    if(!isLoaded) return <div>Loading...</div>
     return (
         <div>
+          <div style={{width: '100', height: '100', zIndex: '100'}}>
+          <h1>{seconds}</h1>
+          </div>
             <Timer/>
             <AltMap position={position}/>
         </div>

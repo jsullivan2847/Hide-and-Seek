@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 
-export default function Timer() {
+export default function Timer({active}) {
   const [seconds, setSeconds] = useState(30);
-  const [active, setActive] = useState(false);
+  
   
 
 
   useEffect(() => {
-    if(seconds > 0){
+    if(active && seconds > 0){
       const timer = setInterval(() => setSeconds(seconds -1), 1000);
       return () => clearInterval(timer);
     }
