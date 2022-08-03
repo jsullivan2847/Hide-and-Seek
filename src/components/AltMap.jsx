@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import Button from './Button'
+import Confirm from './Confirm'
 
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
@@ -58,7 +58,6 @@ export default function AltMap({position}) {
 
     const mapLoad = useCallback((map: google.maps.Map) => {
         map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
-        console.log('map data', map.data.map.controls)
         
         setMap(map)
 
@@ -87,7 +86,7 @@ export default function AltMap({position}) {
             zoom={10} 
             center={position}>
                 <Marker position={choice}/>
-
+                <Confirm active={mapActive}text={'Confirm'}/>
             </GoogleMap>
         </div>
     )

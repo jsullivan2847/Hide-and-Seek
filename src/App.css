@@ -44,6 +44,9 @@ body {
   margin-right: 60px;
 }
 .btn {
+  bottom: 0;
+  position: relative;
+  z-index: 100;
   margin-left: 12px;
   width: 152px;
   height: 52px;
@@ -129,6 +132,21 @@ body {
 }
 .gm-style-mtc{
   margin-left: 10px;
+}
+.game-end{
+  color: red;
+  font-size: 100px;
+  animation: fadeIn .6s;
+}
+.confirm{
+
+  margin-top: 95%;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  
 }
 
 
