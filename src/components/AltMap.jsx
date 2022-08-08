@@ -21,7 +21,7 @@ export default function AltMap({position}) {
    
 
 
-
+    //choice map
     const mapOptions = {
         disableDefaultUI: true,
         mapTypeControl: true,
@@ -30,6 +30,7 @@ export default function AltMap({position}) {
         },
         clickableIcons: false,
     }
+    //streetview 
     const streetOptions = { 
         disableDefaultUI: true,
         showRoadLabels: false,
@@ -53,9 +54,7 @@ export default function AltMap({position}) {
         
     }
 
-
-
-
+    //allows access to map instance
     const mapLoad = useCallback((map: google.maps.Map) => {
         map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
         
@@ -63,7 +62,11 @@ export default function AltMap({position}) {
 
     }, [])
 
+    function handleConfirm(event){
+        console.log('click')
+    }
 
+    
     return (
         <div>
             <GoogleMap

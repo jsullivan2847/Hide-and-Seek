@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { isCompositeComponent } from 'react-dom/test-utils';
 
 
-export default function Timer({time, start}) {
+export default function Timer({time, active}) {
   const [seconds, setSeconds] = useState(time);
 
 
@@ -13,10 +13,15 @@ export default function Timer({time, start}) {
       }, 1000);
       return () => clearInterval(timer);
     }
-    else if(seconds === 0){
+    else if(seconds === 0 && !active){
+      console.log('time up', time)
       setSeconds(time)
     }
+    else if(seconds === 0 && active){
+      console.log('game over')
+    }
     else{
+      console.log('something went wrong')
       return
     }
   }, [seconds, time])

@@ -31,9 +31,8 @@ const GamePlay = () => {
         <div>
           <div style={{width: '100', height: '100', zIndex: '100'}}>
           </div>
-          { active ? <Timer time={30} /> : <Timer time={3}/>}
+          { active ? <Timer active={active} time={10} /> : <Timer active={active}time={3}/>}
             <AltMap position={position}/>
-            {/* <Button text={'hello'}/> */}
         </div>
         
     )
