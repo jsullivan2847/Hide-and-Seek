@@ -17,21 +17,27 @@ const GamePlay = () => {
     const [active, setActive] = useState(false)
 
     useEffect(() => {
-      if(seconds > 0){
+      if(active){
+        return
+      }  
+      else if(seconds > 0){
         const timer = setInterval(() => setSeconds(seconds -1), 1000)
         return () => clearInterval(timer);
       }
       else {
+        console.log('hit zero')
         setActive(true)
       }
     }, [seconds])
+
+    
 
     if(!isLoaded) return <div>Loading...</div>
     return (
         <div>
           <div style={{width: '100', height: '100', zIndex: '100'}}>
           </div>
-          { active ? <Timer active={active} time={10} /> : <Timer active={active}time={3}/>}
+            {active ? <Timer time={15} active={active}/> : <div className="countdown">{seconds}</div> }
             <AltMap position={position}/>
         </div>
         
