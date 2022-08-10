@@ -31,7 +31,7 @@ export default function TimerPractice() {
   return (
     <div>
         
-   {active ? <Timer time={15} active={active}/> : <div className='countdown'>{seconds}</div> }
+   {active ? <Timer time={15} active={active}/> : <div><p className='help-text'>Try and guess your location on the map before your time runs out!!</p><div className='countdown'>{seconds}</div></div> }
     </div>
   )
 }

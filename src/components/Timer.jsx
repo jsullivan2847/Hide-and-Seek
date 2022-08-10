@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Timer({time, active}) {
+export default function Timer({time, active, gameOver}) {
   const [seconds, setSeconds] = useState(time);
 
 
 
   useEffect(() => {
-    if(active){
+ 
+    if(active && !gameOver){
       if(seconds > 0){
         const timer = setInterval(() => {
           setSeconds(seconds -1)

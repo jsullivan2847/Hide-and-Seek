@@ -3,7 +3,7 @@ import Confirm from './Confirm'
 
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
-export default function AltMap({position}) {
+export default function AltMap({position, confirm}) {
 
     const [map,setMap] = useState(null)
     const [choice, setChoice] = useState(position)
@@ -89,7 +89,7 @@ export default function AltMap({position}) {
             zoom={10} 
             center={position}>
                 <Marker position={choice}/>
-                <Confirm active={mapActive}text={'Confirm'}/>
+                <Confirm confirm={confirm}active={mapActive}text={'Confirm'}/>
             </GoogleMap>
         </div>
     )

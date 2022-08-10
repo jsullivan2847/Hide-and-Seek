@@ -1,7 +1,7 @@
-const Button = ({active, text}) => {
+const Button = ({active, text, confirm}) => {
     return (
         <div>
-            {active ? <button className="btn confirm" ><strong>{text}</strong></button> : <></> }
+            {active ? <button onClick={confirm} className="btn confirm" ><strong>{text}</strong></button> : <></> }
         </div>
     )
 }

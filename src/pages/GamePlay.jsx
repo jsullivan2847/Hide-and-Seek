@@ -2,7 +2,7 @@ import Timer from "../components/Timer";
 import AltMap from "../components/AltMap";
 import {useLoadScript} from '@react-google-maps/api'
 import { useState, useEffect } from "react";
-import Button from "../components/Button";
+import GameOver from "../components/GameOver";
 const GamePlay = () => {
 
     // const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
@@ -30,15 +30,23 @@ const GamePlay = () => {
       }
     }, [seconds])
 
+    const [gameOver, setGameOver] = useState(false);
+
+    function confirm(){
+      setGameOver(true)
+    }
+
+
     
 
     if(!isLoaded) return <div>Loading...</div>
     return (
-        <div>
-          <div style={{width: '100', height: '100', zIndex: '100'}}>
-          </div>
-            {active ? <Timer time={15} active={active}/> : <div className="countdown">{seconds}</div> }
-            <AltMap position={position}/>
+        <div className="page">
+          {/* <div style={{width: '100', height: '100', zIndex: '100'}}>
+          </div> */}
+            {active ? <Timer gameOver={gameOver}time={15} active={active}/> : <div className="countdown">{seconds}</div> }
+            {!gameOver? <></> : <GameOver/>}
+            <AltMap position={position} confirm={confirm}/>
         </div>
         
     )
