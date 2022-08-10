@@ -25,7 +25,6 @@ const GamePlay = () => {
         return () => clearInterval(timer);
       }
       else {
-        console.log('hit zero')
         setActive(true)
       }
     }, [seconds])
@@ -42,9 +41,7 @@ const GamePlay = () => {
     if(!isLoaded) return <div>Loading...</div>
     return (
         <div className="page">
-          {/* <div style={{width: '100', height: '100', zIndex: '100'}}>
-          </div> */}
-            {active ? <Timer gameOver={gameOver}time={15} active={active}/> : <div className="countdown">{seconds}</div> }
+            {active ? <Timer gameOver={gameOver}time={45} active={active}/> : <div className="countdown">{seconds}</div> }
             {!gameOver? <></> : <GameOver/>}
             <AltMap position={position} confirm={confirm}/>
         </div>

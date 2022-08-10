@@ -12,6 +12,7 @@ export default function AltMap({position, confirm}) {
 
     //can't figure out how to do this with jsx but I guess it's not
     //the end of the world.
+    //custom control to minimize map 
     const controlDiv = document.createElement('div')
     controlDiv.innerText = '-'
     controlDiv.setAttribute('class', 'control')
@@ -45,7 +46,6 @@ export default function AltMap({position, confirm}) {
             controlDiv.setAttribute('class', 'control')
         }
         else{
-            controlDiv.setAttribute('class', 'green')
             setChoice({
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
