@@ -20,7 +20,9 @@ export default function GameOver() {
         <div className='game-over'>
             <h5>Great Job! Your guess was ___ from the location.</h5>
             <div style={{display: 'flex', justifyContent: 'center', }}>
-            <Button text={'Play Again?'}/>
+              <form action="">
+              <Button text={'Play Again?'}/>
+              </form>
             <Link to={'/'}>
             <Button text={'Main Menu'}/>
             </Link>
