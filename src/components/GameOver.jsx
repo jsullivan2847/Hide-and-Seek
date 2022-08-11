@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 export default function GameOver() {
 
@@ -20,7 +21,9 @@ export default function GameOver() {
             <h5>Great Job! Your guess was ___ from the location.</h5>
             <div style={{display: 'flex', justifyContent: 'center', }}>
             <Button text={'Play Again?'}/>
+            <Link to={'/'}>
             <Button text={'Main Menu'}/>
+            </Link>
             </div>
         </div>
     </div>

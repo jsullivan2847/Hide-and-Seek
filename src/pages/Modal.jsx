@@ -5,14 +5,6 @@ const Modal = ({open, onClose, children}) => {
     const instructions = ['../images/Instructions_1.png', '../images/Instructions_2.png']
     const [image, setImage] = useState(instructions[0])
 
-    // const Modal_Styles = {
-    //     position: 'fixed',
-    //     top: '50%',
-    //     left: '50%',
-    //     transform: 'translate(-50%, -50%)',
-    //     backgroundColor: 'white',
-    //     zIndex: 100
-    // }
     function handleClick(){
         if(image === instructions[0]){
             setImage(instructions[1])
