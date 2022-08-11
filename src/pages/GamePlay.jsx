@@ -39,7 +39,7 @@ const GamePlay = () => {
           lat: choice[0],
           lng: choice[1]
         }
-        let distance = haversineDistance(confirmedChoice, position)
+        let distance = haversineDistance(confirmedChoice, position).toFixed(0)
         setResults(distance)
       }
       setGameOver(true)
