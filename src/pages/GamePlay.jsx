@@ -41,7 +41,10 @@ const GamePlay = () => {
     if(!isLoaded) return <div>Loading...</div>
     return (
         <div className="page">
-            {active ? <Timer gameOver={gameOver}time={45} active={active}/> : <div className="countdown">{seconds}</div> }
+            {active ? <Timer setGameOver={()=> setGameOver(true)}
+            gameOver={gameOver}
+            time={10} 
+            active={active}/> : <div className="countdown">{seconds}</div> }
             {!gameOver? <></> : <GameOver results={results}/>}
             <Map position={position} confirm={handleConfirm}/>
         </div>

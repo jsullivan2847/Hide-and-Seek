@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Timer({time, active, gameOver}) {
+export default function Timer({time, active, gameOver, setGameOver}) {
   const [seconds, setSeconds] = useState(time);
 
 
@@ -25,6 +25,9 @@ export default function Timer({time, active, gameOver}) {
         console.log('something went wrong')
         return
       }
+    }
+    if(seconds === 0 && !gameOver){
+      setGameOver()
     }
   }, [seconds, time, active, gameOver])
 

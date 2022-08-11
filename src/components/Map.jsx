@@ -62,12 +62,14 @@ export default function Map({position, confirm}) {
 
 
     function handleConfirm(event){
-        confirm()
-        let result = {
-            lat: position.lat - choice.lat,
-            lng: position.lng - choice.lng
-        }
-        console.log(result)
+        let resultLat = position.lat - choice.lat
+        let resultLng = position.lng - choice.lng
+        // let result = {
+        //     lat: position.lat - choice.lat,
+        //     lng: position.lng - choice.lng
+        // }
+        let result = [resultLat, resultLng]
+        confirm(result)
         
     }
 
