@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 export default function GameOver({results}) {
 
-  console.log(results)
 
     const Overlay_Styles = {
         height: '100vh',
@@ -22,7 +21,7 @@ export default function GameOver({results}) {
         <div className='game-over'>
           
           <div className='result-card'>
-            {results ?  <h5>Great Job! Your guess was {results}from the location.</h5>
+            {results ?  <h5>Great Job! Your guess was {results} meters from the location!!! </h5>
             : <h5>Oh no! You didn't make a guess in time :(( try again??</h5>
             }
           </div>

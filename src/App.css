@@ -207,8 +207,15 @@ body {
     flex-direction: column;
   }
   .btn-group {
+    height: 120px;
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, -50%);
     top: 300px;
     position: absolute;
+    margin: 0 auto;
   }
   .how-to {
     left: 5%;

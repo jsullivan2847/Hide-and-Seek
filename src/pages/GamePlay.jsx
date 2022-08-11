@@ -3,6 +3,7 @@ import Map from "../components/Map";
 import {useLoadScript} from '@react-google-maps/api'
 import { useState, useEffect} from "react";
 import GameOver from "../components/GameOver";
+import haversineDistance from "haversine-distance";
 const GamePlay = () => {
 
     // const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
@@ -32,8 +33,15 @@ const GamePlay = () => {
     const [gameOver, setGameOver] = useState(false);
     const [results, setResults] = useState(null)
 
-    function handleConfirm(distance){
-      setResults(distance)
+    function handleConfirm(choice){
+      if(choice){
+        let confirmedChoice = {
+          lat: choice[0],
+          lng: choice[1]
+        }
+        let distance = haversineDistance(confirmedChoice, position)
+        setResults(distance)
+      }
       setGameOver(true)
     }
 
@@ -46,7 +54,12 @@ const GamePlay = () => {
             time={10} 
             active={active}/> : <div className="countdown">{seconds}</div> }
             {!gameOver? <></> : <GameOver results={results}/>}
+            { active? <div>
             <Map position={position} confirm={handleConfirm}/>
+            </div> : 
+            <div style={{visible: false}}>
+              <Map position={position} confirm={handleConfirm}/>
+              </div>}
         </div>
         
     )
