@@ -6,24 +6,22 @@ const Menu = () => {
     const [isOpen, setIsOpen] = useState(false)
 
 
-
-
   return (
     <div className="page">
       <div className="nav">
-        <img id="menu-logo" src="../images/Logo.png" alt="" />
+        <img id="menu-logo" src="../images/Logo.png" alt="Hide and Seek" />
         <div className="btn-group">
           <Button  setIsOpen={() => setIsOpen(true)} text='How to Play'/>
           <Link to="/play">
-            <Button text='Play' />
+            <Button text='Play'/>
           </Link>
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>
             Modal
           </Modal>
         </div>
       </div>
-      <img id="binoc" src="../images/binoculars.png" alt="" />
-      <img id="ny" src="../images/ny.jpg" alt="" />
+      <img id="binoc" src="../images/binoculars.png" alt="binoculars" />
+      <img id="ny" src="../images/ny.jpg" alt="arial view of Manhattan" />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 const Button = (props) => {
     return (
-            <button onClick={props.setIsOpen}className="btn" ><strong>{props.text}</strong></button>
+            <button style={{backgroundColor: props.color}}onClick={props.setIsOpen}className="btn" ><strong>{props.text}</strong></button>
     )
 }
 

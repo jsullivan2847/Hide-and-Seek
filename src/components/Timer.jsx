@@ -26,7 +26,7 @@ export default function Timer({time, active, gameOver}) {
         return
       }
     }
-  }, [seconds, time, active])
+  }, [seconds, time, active, gameOver])
 
 
   return (

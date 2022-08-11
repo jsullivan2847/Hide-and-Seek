@@ -18,13 +18,19 @@ export default function GameOver() {
   return (
     <div style={Overlay_Styles}>
         <div className='game-over'>
-            <h5>Great Job! Your guess was ___ from the location.</h5>
+          <div className='result-card'>
+          <h5>Great Job! Your guess was ___ from the location.</h5>
+          </div>
+
+
+
+
             <div style={{display: 'flex', justifyContent: 'center', }}>
               <form action="">
-              <Button text={'Play Again?'}/>
+              <Button color={"rgb(81,239,13)"}text={'Play Again?'}/>
               </form>
             <Link to={'/'}>
-            <Button text={'Main Menu'}/>
+            <Button color={"rgb(109,255,255)"}text={'Main Menu'}/>
             </Link>
             </div>
         </div>

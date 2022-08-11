@@ -87,6 +87,7 @@ body {
 }
 
 .timer {
+  border-radius: 5px;
   transform: translate(-50%, -50%);
   top: 50px;
   left: 50%;
@@ -166,6 +167,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.result-card{
+  width: 70%;
+  background-color: var(--yellow);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 @keyframes wiggle {

@@ -1,7 +1,7 @@
-import { ReactDOM, useState } from "react";
+import {useState } from "react";
 
 
-const Modal = ({open, onClose, children}) => {
+const Modal = ({open, onClose}) => {
     const instructions = ['../images/Instructions_1.png', '../images/Instructions_2.png']
     const [image, setImage] = useState(instructions[0])
 
@@ -27,17 +27,10 @@ const Modal = ({open, onClose, children}) => {
     }
 
 
-    if(!open){
-        return <></>
-    }
-    else{
+    return ( open?  <div style={Overlay_Styles}> 
+    <img className="how-to" onClick={handleClick} src={image} alt="Instructions"/> 
+    </div> : <></> )
 
-        return (
-            <div style={Overlay_Styles}>
-                    <img className="how-to" onClick={handleClick} src={image} alt=""/>
-            </div>
-        )
-    }
 } 
 
 export default Modal;

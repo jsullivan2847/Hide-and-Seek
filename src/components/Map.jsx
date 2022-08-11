@@ -1,86 +1,104 @@
-import {useEffect, useState, React, useRef} from 'react'
+import React, { useCallback, useState } from 'react'
+import Confirm from './Confirm'
+import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
+export default function Map({position, confirm}) {
 
-export default function Map({position}) {
+    const [map,setMap] = useState(null)
+    const [choice, setChoice] = useState(position)
+    const [mapActive, setMapActive] = useState(false)
 
+    //custom map controls
+    //can't figure out how to do this with jsx but I guess it's not
+    //the end of the world.
+    //custom control to minimize map 
+    const controlDiv = document.createElement('div')
+    controlDiv.innerText = '-'
+    controlDiv.setAttribute('class', 'control')
+    controlDiv.addEventListener('click', () => {
+        setMapActive(false)
+    })
+   
 
-  //ref is used to reference the div element the map will be set to...
-  //in this case I'm using it where I would normally use jquery or query selector
-  const ref  = useRef(null);
-  const streetRef = useRef(null)
-  //this state will store the entire map object itself
-  const [map, setMap] = useState(null);
-  const [streetView, setStreetView] = useState(null)
-
-  const [mapActive, setMapActive] = useState(false)
-  let answer = {}
-
-
-  useEffect(() => {
-    //if there is an element to put it into, and there is no map yet 
-    //instantiate a map
-    if(ref.current && !map){
-      setMap(new window.google.maps.Map(ref.current, {
-        center: position,
-        zoom: 10,
+    //choice map
+    const mapOptions = {
         disableDefaultUI: true,
         mapTypeControl: true,
-        clickableIcons: false,
-        controlSize: 20,
-      }));
-
-      setStreetView(new window.google.maps.StreetViewPanorama(streetRef.current, {
-        position: position,
-        pov: {
-          heading: 34,
-          pitch: 10,
+        mapTypeControlOptions: {
+            style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU,
         },
+        clickableIcons: false,
+    }
+    //streetview 
+    const streetOptions = { 
         disableDefaultUI: true,
         showRoadLabels: false,
         clickToGo: true, 
-        scrollwheel: false,
-      }))
+        enableScrollWheel: false,
+        enableCloseButton: false,
     }
-  }, [ref,map]);
-  //storing answers
-  if(streetView && map){
 
-    console.log('streetview',streetView)
-    console.log('map',map)
-      answer = { 
-      lat: streetView.position.lat(),
-      lng: streetView.position.lng(),
+    function handleClick(event){
+        if(!mapActive){
+            setMapActive(true)
+            controlDiv.setAttribute('class', 'control')
+        }
+        else{
+            setChoice({
+                lat: event.latLng.lat(),
+                lng: event.latLng.lng(),
+            })
+        }
+        
     }
-  }
 
+    //allows access to map instance
+    const mapLoad = useCallback((map: google.maps.Map) => {
+        map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
+        
+        setMap(map)
 
-  function handleMapClick(event){
-    if(mapActive === false){
-      setMapActive(true)
-      streetView.visible = false
+    }, [])
+
+    function handleConfirm(event){
+        confirm()
+        let result = {
+            lat: position.lat - choice.lat,
+            lng: position.lng - choice.lng
+        }
+        console.log(result)
+        
     }
+
     
-  }
-  function handleStreetClick(event) {
-    if(mapActive === true){
-      setMapActive(false)
-      streetView.clickToGo = true
-    }
-  }
+    return (
+        <div>
+            <GoogleMap
+            zoom={10}
+            mapContainerClassName='streetview'
+            center={position}>
+               <StreetViewPanorama
+               visible={true}
+               position={position}
+               options={streetOptions}>
+               </StreetViewPanorama>
+            </GoogleMap>
 
 
-
-  //finally if map and ref are truthy - don't do this again. Ref allows the map to persist even on 
-  //re renders 
-
-
-  return (
-    <div className='maps-container'>
-      <div onClick={handleStreetClick}className='streetview'ref={streetRef}></div>
-       <div onClick={handleMapClick} className={mapActive ? 'map-active' : 'map'}ref={ref}></div>
-    </div>
-
-  )
+            <GoogleMap 
+            onLoad={mapLoad}
+            options={mapOptions}
+            onClick={handleClick}
+            mapContainerClassName={mapActive ? 'map-active' : 'map'}
+            zoom={10} 
+            center={position}>
+                <Marker position={choice}/>
+                <Confirm 
+                onClick={handleConfirm} 
+                handleConfirm={handleConfirm} 
+                active={mapActive}
+                text={'Confirm'}/>
+            </GoogleMap>
+        </div>
+    )
 }
-
-
