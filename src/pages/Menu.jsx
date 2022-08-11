@@ -11,9 +11,14 @@ const Menu = () => {
       <div className="nav">
         <img id="menu-logo" src="../images/Logo.png" alt="Hide and Seek" />
         <div className="btn-group">
-          <Button  setIsOpen={() => setIsOpen(true)} text='How to Play'/>
+          <Button  handleClick={() => setIsOpen(true)} 
+          text='How to Play'
+          classes={"btn"}
+          active={true}/>
           <Link to="/play">
-            <Button text='Play'/>
+            <Button text='Play'
+            classes={"btn"}
+            active={true}/>
           </Link>
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>
             Modal

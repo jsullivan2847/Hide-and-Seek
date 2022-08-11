@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button'
 import { Link } from 'react-router-dom'
 
-export default function GameOver() {
+export default function GameOver({results}) {
 
     const Overlay_Styles = {
         height: '100vh',
@@ -19,7 +19,7 @@ export default function GameOver() {
     <div style={Overlay_Styles}>
         <div className='game-over'>
           <div className='result-card'>
-          <h5>Great Job! Your guess was ___ from the location.</h5>
+          <h5>Great Job! Your guess was {results} from the location.</h5>
           </div>
 
 
@@ -27,10 +27,18 @@ export default function GameOver() {
 
             <div style={{display: 'flex', justifyContent: 'center', }}>
               <form action="">
-              <Button color={"rgb(81,239,13)"}text={'Play Again?'}/>
+              <Button color={"rgb(81,239,13)"}
+              text={'Play Again?'}
+              active={true}
+              classes={"btn"}
+              />
               </form>
             <Link to={'/'}>
-            <Button color={"rgb(109,255,255)"}text={'Main Menu'}/>
+            <Button color={"rgb(109,255,255)"}
+            text={'Main Menu'}
+            active={true}
+            classes={"btn"}
+            />
             </Link>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import Timer from "../components/Timer";
 import Map from "../components/Map";
 import {useLoadScript} from '@react-google-maps/api'
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import GameOver from "../components/GameOver";
 const GamePlay = () => {
 
@@ -30,14 +30,20 @@ const GamePlay = () => {
     }, [seconds, active])
 
     const [gameOver, setGameOver] = useState(false);
+    const [results, setResults] = useState(null)
+
+    function handleConfirm(distance){
+      setResults(distance)
+      setGameOver(true)
+    }
 
 
     if(!isLoaded) return <div>Loading...</div>
     return (
         <div className="page">
             {active ? <Timer gameOver={gameOver}time={45} active={active}/> : <div className="countdown">{seconds}</div> }
-            {!gameOver? <></> : <GameOver/>}
-            <Map position={position} confirm={() => setGameOver(true)}/>
+            {!gameOver? <></> : <GameOver results={results}/>}
+            <Map position={position} confirm={handleConfirm}/>
         </div>
         
     )

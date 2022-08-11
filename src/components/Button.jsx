@@ -1,6 +1,11 @@
-const Button = (props) => {
+const Button = ({color, handleClick, text, classes, active}) => {
     return (
-            <button style={{backgroundColor: props.color}}onClick={props.setIsOpen}className="btn" ><strong>{props.text}</strong></button>
+            active? <button style={{backgroundColor: color}}
+            onClick={handleClick}
+            className={classes}>
+                <strong>{text}</strong>
+                </button> : 
+                <></>
     )
 }
 

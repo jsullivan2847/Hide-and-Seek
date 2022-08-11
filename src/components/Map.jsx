@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react'
-import Confirm from './Confirm'
+// import Confirm from './Confirm'
+import Button from './Button'
 import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function Map({position, confirm}) {
 
-    const [map,setMap] = useState(null)
     const [choice, setChoice] = useState(position)
     const [mapActive, setMapActive] = useState(false)
 
@@ -53,12 +53,13 @@ export default function Map({position, confirm}) {
     }
 
     //allows access to map instance
+    //so I can add a custom control
     const mapLoad = useCallback((map: google.maps.Map) => {
+        //adds controls to the choice map
+        //called in the onLoad prop
         map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
-        
-        setMap(map)
+    }, [controlDiv])
 
-    }, [])
 
     function handleConfirm(event){
         confirm()
@@ -93,11 +94,11 @@ export default function Map({position, confirm}) {
             zoom={10} 
             center={position}>
                 <Marker position={choice}/>
-                <Confirm 
-                onClick={handleConfirm} 
-                handleConfirm={handleConfirm} 
+                <Button 
+                handleClick={handleConfirm} 
                 active={mapActive}
-                text={'Confirm'}/>
+                text={'Confirm'}
+                classes={"btn confirm"}/>
             </GoogleMap>
         </div>
     )
