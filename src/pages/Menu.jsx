@@ -5,6 +5,15 @@ import { useState } from "react";
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false)
 
+    function getPosition(){
+      let lat = Number((Math.random() * (74.0060 - 74.0000) + 74.0000).toFixed(5))
+      let lng = Number((Math.random() * (-40.7130 - (-40.7100)) + -40.7100).toFixed(5))
+
+      return {lat: lat, lng: lng}
+    }
+
+    console.log(getPosition())
+
 
   return (
     <div className="page">

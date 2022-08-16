@@ -6,9 +6,23 @@ import GameOver from "../components/GameOver";
 import haversineDistance from "haversine-distance";
 const GamePlay = () => {
 
-    // const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  function getPosition(){
+    let lat = Number((Math.random() * (40.7130 - (40.7100)) + 40.7100).toFixed(5))
+    let lng = Number((Math.random() * (-74.0060 - (-74.0000)) + (-74.0000)).toFixed(5))
 
-    const position = {lat: 42.345573, lng: -71.098326};
+    return {lat: lat, lng: lng}
+  }
+
+  const [position, setPosition] = useState(null)
+
+  useEffect(() => {
+    setPosition(getPosition())
+  }, [])
+
+  console.log(position)
+
+    // const position = {lat: 42.345573, lng: -71.098326};
+
   
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_PUBLIC_GOOGLE_MAPS_API_KEY,
