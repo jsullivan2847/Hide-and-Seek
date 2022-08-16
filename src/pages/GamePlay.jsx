@@ -6,28 +6,26 @@ import GameOver from "../components/GameOver";
 import haversineDistance from "haversine-distance";
 const GamePlay = () => {
 
+  //generate answer
   function getPosition(){
     let lat = Number((Math.random() * (40.7130 - (40.7100)) + 40.7100).toFixed(5))
     let lng = Number((Math.random() * (-74.0060 - (-74.0000)) + (-74.0000)).toFixed(5))
 
     return {lat: lat, lng: lng}
   }
-
   const [position, setPosition] = useState(null)
 
+  //set it in state
   useEffect(() => {
     setPosition(getPosition())
   }, [])
 
-  console.log(position)
-
-    // const position = {lat: 42.345573, lng: -71.098326};
-
-  
+  //api call
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_PUBLIC_GOOGLE_MAPS_API_KEY,
     });
 
+    //timer
     const [seconds, setSeconds] = useState(3);
     const [active, setActive] = useState(false)
 
@@ -43,7 +41,8 @@ const GamePlay = () => {
         setActive(true)
       }
     }, [seconds, active])
-
+    
+    //page state management
     const [gameOver, setGameOver] = useState(false);
     const [results, setResults] = useState(null)
 
@@ -59,21 +58,32 @@ const GamePlay = () => {
       setGameOver(true)
     }
 
+    function timerShow(){
+      if(gameOver){
+        return  <GameOver results={results}/>
+      }
+      else {
+        return (
+          <>
+            {active ? 
+            <Timer setGameOver={()=> setGameOver(true)}
+                gameOver={gameOver}
+                time={10} 
+                active={active}/> :
+             <div className="countdown">{seconds}</div> } </>
+        )
+      }
+    }
+
 
     if(!isLoaded) return <div>Loading...</div>
     return (
         <div className="page">
-            {active ? <Timer setGameOver={()=> setGameOver(true)}
-            gameOver={gameOver}
-            time={10} 
-            active={active}/> : <div className="countdown">{seconds}</div> }
-            {!gameOver? <></> : <GameOver results={results}/>}
+          {timerShow()}
             { active? <div>
-            <Map position={position} confirm={handleConfirm}/>
-            </div> : 
-            <div style={{visible: false}}>
-              <Map position={position} confirm={handleConfirm}/>
-              </div>}
+            <Map results={results} position={position} confirm={handleConfirm}/>
+            </div> : <></> }
+           
         </div>
         
     )

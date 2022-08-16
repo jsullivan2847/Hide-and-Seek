@@ -162,12 +162,13 @@ body {
   font-size: 20px;
 }
 .game-over{
-  padding: 10vw;
-  height: 70vh;
+  background-color: rgb(245, 242, 242);
+  padding: 2%;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .result-card{
   width: fit-content;

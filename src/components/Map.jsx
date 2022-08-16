@@ -4,7 +4,7 @@ import Button from './Button'
 import { GoogleMap, Marker, Polyline, StreetViewPanorama} from '@react-google-maps/api'
 import midpoint from '@turf/midpoint'
 
-export default function Map({position, confirm}) {
+export default function Map({position, confirm, results}) {
 
     const [choice, setChoice] = useState(null)
     const [mapActive, setMapActive] = useState(false)
@@ -79,6 +79,10 @@ export default function Map({position, confirm}) {
 
 
     const GameEndSettings = () => {
+        console.log(results)
+        let zoom = 0
+        results > 8000 ? zoom = 10 : zoom = 12
+        results > 25000 ? zoom = 9 : zoom = zoom
         if(gameEnd){
             
             return (
@@ -87,7 +91,7 @@ export default function Map({position, confirm}) {
                 options={mapOptions}
                 onClick={handleClick}
                 mapContainerClassName={mapActive ? 'map-active' : 'map'}
-                zoom={13} 
+                zoom={zoom} 
                 center={getMiddle()}>
                     <Marker position={choice}/>
                     <Marker position={position}/>
