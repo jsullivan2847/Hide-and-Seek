@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from 'react'
 // import Confirm from './Confirm'
 import Button from './Button'
-import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
+import { GoogleMap, Marker, Polyline, StreetViewPanorama} from '@react-google-maps/api'
+import midpoint from '@turf/midpoint'
 
 export default function Map({position, confirm}) {
 
     const [choice, setChoice] = useState(null)
     const [mapActive, setMapActive] = useState(false)
+    const [gameEnd, setGameEnd] = useState(false)
 
     //MAP INITIALIZATION
     //custom map controls
@@ -61,7 +63,58 @@ export default function Map({position, confirm}) {
     //handler for confirm button
     function handleConfirm(event){
         //lifting state
-        confirm([choice.lat, choice.lng])
+        confirm([choice.lat, choice.lng]);
+        setGameEnd(true);
+        
+
+    }
+
+    function getMiddle() {
+        let pointa = ([choice.lat, choice.lng])
+            let pointb = ([position.lat, position.lng])
+            const middle = midpoint(pointa, pointb)
+            const halfway = {lat: middle.geometry.coordinates[0], lng:middle.geometry.coordinates[1] }
+            return halfway
+    }
+
+
+    const GameEndSettings = () => {
+        if(gameEnd){
+            
+            return (
+                <GoogleMap
+                onLoad={mapLoad}
+                options={mapOptions}
+                onClick={handleClick}
+                mapContainerClassName={mapActive ? 'map-active' : 'map'}
+                zoom={13} 
+                center={getMiddle()}>
+                    <Marker position={choice}/>
+                    <Marker position={position}/>
+                <Polyline 
+                path={[choice, position]}
+                strokeColor={'red'}
+                strokeOpacity={0}
+                strokeWeight={2}/>
+                </GoogleMap>
+            )
+        }
+        else{
+            return (
+            <GoogleMap
+            onLoad={mapLoad}
+            options={mapOptions}
+            onClick={handleClick}
+            mapContainerClassName={mapActive ? 'map-active' : 'map'}
+            zoom={10} 
+            center={position}>
+                <Marker position={choice}/>
+                <Button 
+                handleClick={handleConfirm} 
+                active={mapActive}
+                text={'Confirm'}
+                classes={"btn confirm"}/>  </GoogleMap> )
+        }
     }
 
     return (
@@ -76,22 +129,7 @@ export default function Map({position, confirm}) {
                options={streetOptions}>
                </StreetViewPanorama>
             </GoogleMap>
-
-
-            <GoogleMap 
-            onLoad={mapLoad}
-            options={mapOptions}
-            onClick={handleClick}
-            mapContainerClassName={mapActive ? 'map-active' : 'map'}
-            zoom={10} 
-            center={position}>
-                <Marker position={choice}/>
-                <Button 
-                handleClick={handleConfirm} 
-                active={mapActive}
-                text={'Confirm'}
-                classes={"btn confirm"}/>
-            </GoogleMap>
+                {GameEndSettings()}
         </div>
     )
 }

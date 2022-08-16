@@ -162,14 +162,15 @@ body {
   font-size: 20px;
 }
 .game-over{
-  height: 100vh;
+  padding: 10vw;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .result-card{
-  width: 70%;
+  width: fit-content;
   background-color: var(--yellow);
   margin-bottom: 20px;
   padding: 10px;
