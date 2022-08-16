@@ -5,9 +5,10 @@ import { GoogleMap, Marker, StreetViewPanorama} from '@react-google-maps/api'
 
 export default function Map({position, confirm}) {
 
-    const [choice, setChoice] = useState(position)
+    const [choice, setChoice] = useState(null)
     const [mapActive, setMapActive] = useState(false)
 
+    //MAP INITIALIZATION
     //custom map controls
     //can't figure out how to do this with jsx but I guess it's not
     //the end of the world.
@@ -18,8 +19,13 @@ export default function Map({position, confirm}) {
     controlDiv.addEventListener('click', () => {
         setMapActive(false)
     })
-   
-
+     //allows access to map instance
+    //so I can add a custom control
+    const mapLoad = useCallback((map: google.maps.Map) => {
+        //adds controls to the choice map
+        //called in the onLoad prop
+        map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
+    }, [controlDiv])
     //choice map
     const mapOptions = {
         disableDefaultUI: true,
@@ -38,6 +44,7 @@ export default function Map({position, confirm}) {
         enableCloseButton: false,
     }
 
+    //click handles 
     function handleClick(event){
         if(!mapActive){
             setMapActive(true)
@@ -51,23 +58,12 @@ export default function Map({position, confirm}) {
         }
         
     }
-
-    //allows access to map instance
-    //so I can add a custom control
-    const mapLoad = useCallback((map: google.maps.Map) => {
-        //adds controls to the choice map
-        //called in the onLoad prop
-        map.data.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv)
-    }, [controlDiv])
-
-
+    //handler for confirm button
     function handleConfirm(event){
-
+        //lifting state
         confirm([choice.lat, choice.lng])
-        
     }
 
-    
     return (
         <div>
             <GoogleMap

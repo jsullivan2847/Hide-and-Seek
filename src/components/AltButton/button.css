@@ -1,0 +1,14 @@
+.button{
+    border: solid black 1px;
+    padding: 5px;
+    margin: 5px auto;
+    width: fit-content;
+
+}
+.button:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.button:active{
+    background-color: red;
+}
