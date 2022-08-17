@@ -15,14 +15,11 @@ export default function Timer({time, active, gameOver, setGameOver}) {
         return () => clearInterval(timer);
       }
       else if(seconds === 0 && !active){
-        console.log('time up', time)
         setSeconds(time)
       }
       else if(seconds === 0 && active){
-        console.log('game over')
       }
       else{
-        console.log('something went wrong')
         return
       }
     }
