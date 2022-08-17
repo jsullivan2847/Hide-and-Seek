@@ -177,7 +177,27 @@ body {
   padding: 10px;
   border-radius: 5px;
 }
-
+.card{
+  border-radius: 5px;
+  padding: 10px;
+  height: fit-content;
+  width: fit-content;
+  background-color: rgb(201, 197, 197);
+}
+.overlay{
+  overflow: hidden;
+  display: inline-block;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(51, 46, 46, 0.7);
+  z-index: 100;
+  mask-image: radial-gradient(circle farthest-side at 50vw 60vh, transparent 45%, white 50%);
+}
 @keyframes wiggle {
   0% {transform: translate(1px, 1px) rotate(0deg);}
   20% {transform: translate(-1px, 2px) rotate(-1deg);}

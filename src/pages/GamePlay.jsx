@@ -68,7 +68,7 @@ const GamePlay = () => {
             {active ? 
             <Timer setGameOver={()=> setGameOver(true)}
                 gameOver={gameOver}
-                time={10} 
+                time={45} 
                 active={active}/> :
              <div className="countdown">{seconds}</div> } </>
         )

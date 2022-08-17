@@ -79,12 +79,12 @@ export default function Map({position, confirm, results}) {
 
 
     const GameEndSettings = () => {
-        console.log(results)
         let zoom = 0
-        results > 8000 ? zoom = 10 : zoom = 12
-        results > 25000 ? zoom = 9 : zoom = zoom
+        if (results < 600) zoom = 16
+        else if(results < 2000) zoom = 14
+        else if (results < 5000) zoom = 12
+        else if(results < 8000) zoom = 10
         if(gameEnd){
-            
             return (
                 <GoogleMap
                 onLoad={mapLoad}
@@ -122,18 +122,20 @@ export default function Map({position, confirm, results}) {
     }
 
     return (
-        <div>
-            <GoogleMap
-            zoom={10}
-            mapContainerClassName='streetview'
-            center={position}>
-               <StreetViewPanorama
-               visible={true}
-               position={position}
-               options={streetOptions}>
-               </StreetViewPanorama>
-            </GoogleMap>
+        <>
+        {gameEnd ? <></> : <GoogleMap
+        onLoad={mapLoad}
+        zoom={10}
+        mapContainerClassName='streetview'
+        center={position}>
+           <StreetViewPanorama
+
+           visible={true}
+           position={position}
+           options={streetOptions}>
+           </StreetViewPanorama>
+        </GoogleMap> }
                 {GameEndSettings()}
-        </div>
+        </>
     )
 }
