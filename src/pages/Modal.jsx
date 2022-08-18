@@ -15,9 +15,9 @@ const Modal = ({open, onClose}) => {
         }
     }
     const Overlay_Styles = {
+        position: 'fixed',
         height: '100vh',
         width: '100vw',
-        position: 'fixed',
         top: 0,
         bottom: 0,
         left: 0,
@@ -27,7 +27,7 @@ const Modal = ({open, onClose}) => {
     }
 
 
-    return ( open?  <div style={Overlay_Styles}> 
+    return ( open?  <div className="modal-background"> 
     <img className="how-to" onClick={handleClick} src={image} alt="Instructions"/> 
     </div> : <></> )
 

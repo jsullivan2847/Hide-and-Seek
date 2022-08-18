@@ -31,7 +31,7 @@ export default function Timer({time, active, gameOver, setGameOver}) {
 
   return (
     <div>
-      <div className='timer'>{seconds > 9 ? <h1>00:{seconds}</h1> : <h1 className='game-end'>00:0{seconds}</h1>}</div>
+      <div className='timer'>{seconds > 9 ? <h1> &#128337; 00:{seconds}</h1> : <h1 className='game-end'> &#128337; 00:0{seconds}</h1>}</div>
     </div>
   )
 }

@@ -13,7 +13,9 @@ export default function GameOver({results}) {
             : <h5>Oh no! You didn't make a guess in time :(( try again??</h5>
             }
           </div>
-            <div style={{display: 'flex', justifyContent: 'center', }}>
+          </div>      
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
               <form action="">
               <Button color={"rgb(81,239,13)"}
               text={'Play Again?'}
@@ -29,8 +31,6 @@ export default function GameOver({results}) {
             />
             </Link>
             </div> 
-          </div>      
-        </div>
     </div>
   )
 }

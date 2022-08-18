@@ -5,6 +5,7 @@ import { Route, Router } from 'react-router-dom';
 import { Routes } from 'react-router';
 import AltButton from './components/AltButton/AltButton';
 import {createBrowserHistory} from 'history';
+import LeaderBoard from './pages/LeaderBoard';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
     </Route>
     <Route path={'/test'}>
       <AltButton label="click me please"/>
+    </Route>
+    <Route path={'/leaderboard'}>
+      <LeaderBoard/>
     </Route>
     </Router>
     {/* <Route path={'/timer'}>

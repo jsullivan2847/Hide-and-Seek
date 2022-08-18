@@ -30,6 +30,20 @@ export default function Map({position, confirm, results}) {
     }, [controlDiv])
     //choice map
     const mapOptions = {
+        styles: [
+            {
+                featureType: 'poi',
+                stylers: [
+                    {'visibility': 'off'}
+                ]
+            },
+            {
+                featureType: 'transit',
+                stylers: [
+                    {'visibility': 'off'}
+                ]
+            }
+        ],
         disableDefaultUI: true,
         mapTypeControl: true,
         mapTypeControlOptions: {
@@ -83,7 +97,9 @@ export default function Map({position, confirm, results}) {
         if (results < 600) zoom = 16
         else if(results < 2000) zoom = 14
         else if (results < 5000) zoom = 12
-        else if(results < 8000) zoom = 10
+        else if(results < 15000) zoom = 10
+        else if(results < 40000) zoom = 9
+        else zoom = 8
         if(gameEnd){
             return (
                 <GoogleMap
@@ -93,8 +109,25 @@ export default function Map({position, confirm, results}) {
                 mapContainerClassName={mapActive ? 'map-active' : 'map'}
                 zoom={zoom} 
                 center={getMiddle()}>
-                    <Marker position={choice}/>
-                    <Marker position={position}/>
+                    <Marker position={choice}
+                    label={
+                        {text:"Your Guess",
+                        className:"marker",
+                        fontFamily: 'poppins',
+                        fontSize: '20px',
+                        fontWieght: 700,
+                    }
+                        }/>
+                    <Marker position={position} 
+                    icon={'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
+                    label={
+                        {text:"Answer",
+                        className:"marker",
+                        fontFamily: 'poppins',
+                        fontSize: '20px',
+                        fontWieght: 700,
+                    } } 
+                    />
                 <Polyline 
                 path={[choice, position]}
                 strokeColor={'red'}
