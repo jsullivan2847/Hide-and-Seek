@@ -45,7 +45,9 @@ body {
   position: absolute;
 }
 .btn-group {
-  margin-right: 60px;
+  position: relative;
+  display: flex;
+  right:20px ;
 }
 .btn {
   bottom: 0;
@@ -226,26 +228,29 @@ body {
 }
 
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-  
-}
-
-
-@media screen and (max-width: 769px) {
-  .overlay{
+  0% {opacity: 0;}.overlay{
     overflow: hidden;
     height: 100vh;
     width: 100vw;
     position:absolute;
     background-color: rgba(51, 46, 46, 0.7);
     z-index: 2;
-    mask-image: radial-gradient(circle farthes-side at 50% 55vh, transparent 45%, white 50%);
-    /* mask-image: radial-gradient(red,green, blue); */
-  }
+  100% {opacity: 1;}
+  
+}
+}
+
+@media screen and (max-width: 769px) {
+  
+
   #ny {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
     margin: 0;
     width: 100vw;
+    z-index: 0;
   }
   #binoc {
     display: none;
@@ -254,18 +259,22 @@ body {
     margin: 0 auto;
   }
   .nav {
+    min-height: 200px;
+    z-index: 1;
+    height: fit-content;
     flex-direction: column;
   }
   .btn-group {
-    height: 120px;
+    z-index: 3;
+    height: 180px;
+    width: fit-content;
     justify-content: space-between;
     flex-direction: column;
     display: flex;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: 300px;
+    top: 50%;
     position: absolute;
-    margin: 0 auto;
   }
   .how-to {
     left: 5%;
