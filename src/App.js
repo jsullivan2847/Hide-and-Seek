@@ -4,7 +4,7 @@ import GamePlay from './pages/GamePlay';
 import { Route, Router } from 'react-router-dom';
 import AltButton from './components/AltButton/AltButton';
 import {createBrowserHistory} from 'history';
-import LeaderBoard from './pages/LeaderBoard';
+import LeaderBoard from './pages/LeaderBoard/LeaderBoard';
 import { useState } from 'react';
 
 
