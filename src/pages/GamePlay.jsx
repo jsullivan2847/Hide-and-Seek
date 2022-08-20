@@ -4,7 +4,8 @@ import {useLoadScript} from '@react-google-maps/api'
 import { useState, useEffect} from "react";
 import GameOver from "../components/GameOver";
 import haversineDistance from "haversine-distance";
-const GamePlay = ({storeScore}) => {
+import  {createScore} from '../services/scores'
+const GamePlay = () => {
 
   //generate answer
   function getPosition(){
@@ -54,7 +55,8 @@ const GamePlay = ({storeScore}) => {
         }
         let distance = haversineDistance(confirmedChoice, position).toFixed(0)
         setResults(distance)
-        storeScore()
+        createScore(distance)
+
       }
       setGameOver(true)
     }

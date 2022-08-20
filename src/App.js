@@ -12,11 +12,6 @@ function App() {
 
   const [scores, setScores] = useState([])
 
-  function highScores(score) {
-    scores.push(1)
-    console.log(scores)
-  }
-
   const history = createBrowserHistory()
   return (
     <div className="App"> 
@@ -25,7 +20,7 @@ function App() {
     <Menu/>
     </Route>
     <Route path={'/play'}>
-      <GamePlay storeScore={highScores}/>
+      <GamePlay/>
     </Route>
     <Route path={'/test'}>
       <AltButton label="click me please"/>

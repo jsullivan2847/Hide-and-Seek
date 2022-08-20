@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import scores from '../../services/scores'
+import {scores, createScore} from '../../services/scores'
+import Score from '../../components/Score/Score'
+import '../LeaderBoard/LeaderBoard.css'
 
 export default function LeaderBoard() {
 
@@ -12,24 +14,26 @@ export default function LeaderBoard() {
     //a modal??
 
 
-    const [scoreList, setScoreList] = useState()
+    const [scoreList, setScoreList] = useState([])
     useEffect(() => {
       scores().then(response => {
         setScoreList(response)
       })
-      console.log(scoreList)
     }, [])
 
-    const scoreDisplay = scoreList.map((score) => {
-      return <li><h1>{score.score}</h1></li>
+    const scoreDisplay = scoreList.map((data,index) => {
+      return <Score data={data} key={index}/>
     })
 
     
   return (
     <div>
-    <ul>
+      <h1>High Scores</h1>
+      <div className='leaderboard'>
+      <ul>
       {scoreDisplay}
     </ul>
+      </div>
     </div>
   )
 }
