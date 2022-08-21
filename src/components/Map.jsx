@@ -87,7 +87,7 @@ export default function Map({position, confirm, results}) {
         let pointa = ([choice.lat, choice.lng])
             let pointb = ([position.lat, position.lng])
             const middle = midpoint(pointa, pointb)
-            const halfway = {lat: middle.geometry.coordinates[0], lng:middle.geometry.coordinates[1] }
+            const halfway = {lat: middle.geometry.coordinates[0] + 0.005, lng:middle.geometry.coordinates[1] }
             return halfway
     }
 

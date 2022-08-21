@@ -55,15 +55,13 @@ const GamePlay = () => {
         }
         let distance = haversineDistance(confirmedChoice, position).toFixed(0)
         setResults(distance)
-        createScore(distance)
-
       }
       setGameOver(true)
     }
 
     function timerShow(){
       if(gameOver){
-        return  <GameOver results={results}/>
+        return  <GameOver createScore={createScore}results={results}/>
       }
       else {
         return (
