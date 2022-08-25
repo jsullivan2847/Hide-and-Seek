@@ -21,19 +21,37 @@ export default function LeaderBoard() {
       })
     }, [])
 
+    //Awesome way to dry sort an array of simple ints
+    scoreList.sort(function(a,b) {
+      return a.score - b.score
+    })
+
     const scoreDisplay = scoreList.map((data,index) => {
       return <Score data={data} key={index}/>
     })
 
-    
-  return (
-    <div>
+    if(!scoreDisplay){
+      return <>Loading...</>
+    }
+    else return (
+    <>
       <h1>High Scores</h1>
-      <div className='leaderboard'>
-      <ul>
+      {/* <div className='leaderboard-2'>
+        <div className='key'>
+          <p>score</p>
+          <p>name</p>
+          <p>date</p>
+        </div>
       {scoreDisplay}
-    </ul>
-      </div>
-    </div>
+      </div> */}
+      <table className='leaderboard-2'>
+        <tr>
+          <th>Score</th>
+          <th>Name</th>
+          <th>Date</th>
+        </tr>
+        {scoreDisplay}
+      </table>
+    </>
   )
 }

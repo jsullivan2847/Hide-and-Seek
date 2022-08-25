@@ -87,15 +87,14 @@ export default function Map({position, confirm, results}) {
         let pointa = ([choice.lat, choice.lng])
             let pointb = ([position.lat, position.lng])
             const middle = midpoint(pointa, pointb)
-            const halfway = {lat: middle.geometry.coordinates[0] + 0.005, lng:middle.geometry.coordinates[1] }
+            const halfway = {lat: middle.geometry.coordinates[0] + 0.003, lng:middle.geometry.coordinates[1] }
             return halfway
     }
 
 
     const GameEndSettings = () => {
         let zoom = 0
-        if (results < 600) zoom = 16
-        else if(results < 2000) zoom = 14
+        if(results < 2000) zoom = 14
         else if (results < 5000) zoom = 12
         else if(results < 15000) zoom = 10
         else if(results < 40000) zoom = 9
@@ -110,23 +109,24 @@ export default function Map({position, confirm, results}) {
                 zoom={zoom} 
                 center={getMiddle()}>
                     <Marker position={choice}
-                    label={
-                        {text:"Your Guess",
-                        className:"marker",
-                        fontFamily: 'poppins',
-                        fontSize: '20px',
-                        fontWieght: 700,
-                    }
-                        }/>
+                    // label={
+                    //     {text:"Your Guess",
+                    //     className:"marker",
+                    //     fontFamily: 'poppins',
+                    //     fontSize: '20px',
+                    //     fontWieght: 700,
+                    // }
+                    //     }
+                        />
                     <Marker position={position} 
                     icon={'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
-                    label={
-                        {text:"Answer",
-                        className:"marker",
-                        fontFamily: 'poppins',
-                        fontSize: '20px',
-                        fontWieght: 700,
-                    } } 
+                    // label={
+                    //     {text:"Answer",
+                    //     className:"marker",
+                    //     fontFamily: 'poppins',
+                    //     fontSize: '20px',
+                    //     fontWieght: 700,
+                    // } } 
                     />
                 <Polyline 
                 path={[choice, position]}

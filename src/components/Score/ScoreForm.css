@@ -23,3 +23,10 @@ input[type=submit]{
 border-radius: 10px;
 background-color: rgb(225, 229, 30);
 }
+.name{
+    color:rgb(109,255,255)
+}
+.score{
+    display: flex;
+    justify-content: space-between;
+}

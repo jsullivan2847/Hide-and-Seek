@@ -1,4 +1,32 @@
 .leaderboard{
+    left: 50%;
+    transform: translate(-50%, 25%);
+    position: absolute;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
     background-color: grey;
     height: fit-content;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin-top: 0;
+}
+.leaderboard-2{
+    left: 50%;
+    transform: translate(-50%, 25%);
+    position: absolute;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: grey;
+    height: fit-content;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin-top: 0;  
+}
+.key{
+    display: flex;
+    justify-content: space-between;
 }

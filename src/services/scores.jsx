@@ -9,14 +9,14 @@ export async function scores() {
   }
 }
 
-export async function createScore(distance) {
+export async function createScore(distance, name) {
   console.log(distance)
   const URL = 'https://hide-and-seek-backend.herokuapp.com/create'
   await fetch(URL, {
     method: 'POST',
     headers: {"content-type": "application/json"},
     body: JSON.stringify({ 
-      name: 'no name',
+      name: name,
       score: distance
     }),
   });

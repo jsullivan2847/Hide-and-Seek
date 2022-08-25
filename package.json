@@ -12,6 +12,7 @@
     "@turf/midpoint": "^6.5.0",
     "google-maps": "^4.3.3",
     "haversine-distance": "^1.2.1",
+    "numbersort": "^0.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",

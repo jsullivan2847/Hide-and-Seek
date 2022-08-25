@@ -3,6 +3,7 @@
   overflow: hidden;
 }
 .App {
+  display: block;
   height: 100vh;
   width: 100vw;
   text-align: center;
@@ -202,9 +203,9 @@ body {
 }
 .marker{
   background-color: rgb(81,239,13);
-  color: blue;
   font-family: poppins;
   margin-bottom: 100px;
+  margin-right: 20px;
   padding: 2px;
   border-radius: 5px;
 }

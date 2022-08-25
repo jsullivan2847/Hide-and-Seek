@@ -1,10 +1,13 @@
 import React from 'react'
 import GameOverNav from './GameOverNav'
 import ScoreForm from './Score/ScoreForm'
+import { useState } from 'react'
 
 export default function GameOver({results, createScore}) {
 
-  const isOver = false;
+  const [isOver, setIsOver] = useState()
+
+
   return (
     <div className="overlay">
         <div className='game-over'>
@@ -16,7 +19,7 @@ export default function GameOver({results, createScore}) {
           </div>
           </div>    
         </div>
-        {isOver ? <GameOverNav/> : <ScoreForm/>} 
+        {isOver ? <GameOverNav/> : <ScoreForm results={results} createScore={createScore} setOver={setIsOver}/>} 
     </div>
   )
 }
