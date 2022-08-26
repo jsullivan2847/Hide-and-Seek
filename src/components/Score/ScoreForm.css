@@ -30,3 +30,9 @@ background-color: rgb(225, 229, 30);
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 769px){
+    .score-form{
+        width: 80vw;
+    }
+}

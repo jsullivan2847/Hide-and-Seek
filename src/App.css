@@ -177,6 +177,8 @@ body {
   overflow:hidden;
 }
 .result-card{
+  margin:  0 auto;
+  max-width: 400px;
   width: 400px;
   text-overflow: clip;
   background-color: var(--yellow);
@@ -236,6 +238,23 @@ body {
 }
 
 @media screen and (max-width: 769px) {
+
+  .game-over{
+    background-color: rgb(245, 242, 242);
+    height: 20vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+  }
+
+  .result-card{
+    width: 85vw;
+  }
+  .card{
+    width: 90vw;
+  }
   
 
   #ny {
