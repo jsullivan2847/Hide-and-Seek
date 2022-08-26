@@ -1,0 +1,35 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 90px;
+    background-color: rgb(74,74,74);
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+}
+.icon{
+    width: 50px;
+    z-index: 1000;
+}
+.info{
+    position: relative;
+    margin: 0 0 30px 20px;
+    font-size: 13px;
+    width: 100px;
+    height: 50px;
+    color: white;
+}
+.icon-container{
+    margin: 20px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 769px) {
+    .info{
+        margin-bottom: 50px;
+    }
+}

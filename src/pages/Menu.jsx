@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import { useState } from "react";
+import Footer from "../components/Footer/Footer";
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -34,6 +35,7 @@ const Menu = () => {
       </div>
       <img id="binoc" src="../images/binoculars.png" alt="binoculars" />
       <img id="ny" src="../images/ny.jpg" alt="arial view of Manhattan" />
+      <Footer/>
     </div>
   );
 };
