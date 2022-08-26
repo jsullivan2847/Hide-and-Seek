@@ -37,7 +37,7 @@ export default function LeaderBoard() {
     }
     else return (
     <>
-    <div className='nav'>
+    <div className='leaderboard-nav'>
     <Link to={'/'}>
             <Button color={"rgb(109,255,255)"}
             text={'Main Menu'}
