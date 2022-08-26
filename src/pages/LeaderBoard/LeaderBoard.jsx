@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {scores, createScore} from '../../services/scores'
 import Score from '../../components/Score/Score'
 import '../LeaderBoard/LeaderBoard.css'
+import Button from '../../components/Button'
+import { Link } from 'react-router-dom'
 
 export default function LeaderBoard() {
 
@@ -35,15 +37,18 @@ export default function LeaderBoard() {
     }
     else return (
     <>
+    <div className='nav'>
+    <Link to={'/'}>
+            <Button color={"rgb(109,255,255)"}
+            text={'Main Menu'}
+            active={true}
+            classes={"btn"}
+            />
+            </Link>
       <h1>High Scores</h1>
-      {/* <div className='leaderboard-2'>
-        <div className='key'>
-          <p>score</p>
-          <p>name</p>
-          <p>date</p>
-        </div>
-      {scoreDisplay}
-      </div> */}
+      <div style={{width: '152px'}}></div>
+    </div>
+
       <table className='leaderboard-2'>
         <tr>
           <th>Score</th>
