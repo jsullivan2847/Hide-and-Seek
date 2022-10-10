@@ -5,6 +5,7 @@
     margin: 0 auto;
     width: 80%;
     max-width: 1000px;
+    height: 100vh;
     padding: 20px;
     background-color: grey;
     height: fit-content;
@@ -13,10 +14,6 @@
     margin-top: 0;
 }
 .leaderboard-2{
-    left: 50%;
-    transform: translate(-50%, 25%);
-    position: absolute;
-    margin: 0 auto;
     width: 80%;
     max-width: 1000px;
     padding: 20px;
@@ -24,13 +21,20 @@
     height: fit-content;
     border: solid black 2px;
     border-radius: 5px;
-    margin-top: 0;  
+    margin: 100px auto 200px auto;
+    position: relative;
 }
 .key{
     display: flex;
     justify-content: space-between;
 }
 .leaderboard-nav{
+    align-items: center;
     display: flex;
     justify-content: space-between;
+    width: 100vw;
+}
+.page{
+    padding: 10px;
+    height: fit-content;
 }

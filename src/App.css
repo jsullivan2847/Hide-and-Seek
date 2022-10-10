@@ -1,6 +1,7 @@
 :root {
   --yellow: rgb(225, 229, 30);
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .App {
   display: block;

@@ -36,7 +36,7 @@ export default function LeaderBoard() {
       return <>Loading...</>
     }
     else return (
-    <>
+    <div className='page'>
     <div className='leaderboard-nav'>
     <Link to={'/'}>
             <Button color={"rgb(109,255,255)"}
@@ -48,7 +48,6 @@ export default function LeaderBoard() {
       <h1>High Scores</h1>
       <div style={{width: '152px'}}></div>
     </div>
-
       <table className='leaderboard-2'>
         <tr>
           <th>Score</th>
@@ -57,6 +56,7 @@ export default function LeaderBoard() {
         </tr>
         {scoreDisplay}
       </table>
-    </>
+      
+    </div>
   )
 }

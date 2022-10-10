@@ -31,9 +31,9 @@ export default function Score({data}) {
       return (
         <>
         <tr >
-        <td >{score}</td>
-        <td ><span className='name'>{name}</span></td>
-        <td >{date}</td>
+        <td>{score}</td>
+        <td><span className='name'>{name}</span></td>
+        <td>{date}</td>
         </tr>
         </>
       )
