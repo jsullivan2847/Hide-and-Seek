@@ -1,6 +1,8 @@
 # Hide and Seek
 ![image](public/Images/screenshots/Screenshot_Logo.png)
-This is a geographic guessing game (a flagrant ripoff of the popular game [geoguessr](https://www.geoguessr.com/) created by Swedish developer Anton Wallén)
+This is a geographic guessing game (a flagrant ripoff of the popular game [geoguessr](https://www.geoguessr.com/) created by Swedish developer Anton Wallén) 
+
+**[PLAY NOW HERE](https://hideandseekv2.netlify.app/)**
 
 The game is meant to differentiate itself from geoguessr in the form of challenging a player to see how well they know the streets and landscape of a smaller area, as opposed to obscure locations in highways and fields often found in contemporary games.
 
