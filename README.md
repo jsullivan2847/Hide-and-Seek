@@ -22,7 +22,9 @@ Future improvements on this program would involve, primarily:
 <br />
 <br />
 ----
-One of my favorite parts of this game is that the vast amount of streeet views in a place as densely documented as Lower Manhattan includes lots of user uploaded panoramas. This ends up dropping the user in homes, restaurants, bookstores, office buildings, and even weddings.
+One of my favorite parts of this game is that the vast amount of streeet views in a place as densely documented as Lower Manhattan includes lots of user uploaded panoramas. This ends up dropping the user in homes, restaurants, bookstores, boats, the inside of cars,office buildings, and even weddings.
+
+**Some greatest hits I encountered while building and testing below:**
 
 <iframe src="https://www.google.com/maps/embed?pb=!4v1724182017995!6m8!1m7!1sCAoSLEFGMVFpcE1wbFNndldOOWx2OXAzM2dYV180REtJSXVMWHNvVm5wU3djZGxZ!2m2!1d40.65765102834195!2d-73.99548082221943!3f177.46071202082035!4f-21.535613323935877!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
