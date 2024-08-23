@@ -1,7 +1,6 @@
 # Hide and Seek
 ![image](https://raw.githubusercontent.com/jsullivan2847/Hide-and-Seek/main/public/Images/screenshots/Screenshot_Logo.png)  
 
-
 This is a geographic guessing game (a flagrant ripoff of the popular game [geoguessr](https://www.geoguessr.com/) created by Swedish developer Anton Wallén) 
 
 **[PLAY NOW HERE](https://hideandseekv2.netlify.app/)**
