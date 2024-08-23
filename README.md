@@ -1,5 +1,5 @@
 # Hide and Seek
-![image](public/Images/screenshots/Screenshot_Logo.png)
+![image](https://raw.githubusercontent.com/jsullivan2847/Hide-and-Seek/main/public/Images/screenshots/Screenshot_Logo.png)
 This is a geographic guessing game (a flagrant ripoff of the popular game [geoguessr](https://www.geoguessr.com/) created by Swedish developer Anton Wallén) 
 
 **[PLAY NOW HERE](https://hideandseekv2.netlify.app/)**
@@ -8,11 +8,11 @@ The game is meant to differentiate itself from geoguessr in the form of challeng
 
 The game presents a player with a random streetview panorama (via [Google Maps API](https://developers.google.com/maps/documentation/javascript)) - generated within a radius around lower Manhattan and a user is prompted to guess their location on a 2D map by "dropping a pin".
 
-![](public/Images/screenshots/gameplay_1.png)
+![](https://github.com/jsullivan2847/Hide-and-Seek/blob/main/public/Images/screenshots/gameplay_1.png?raw=true)
 
 A player's guess is translated into points based on the distance of their guess from the Lat Lng coordinates of the streetview panorama.
 
-![](public/Images/screenshots/gameplay_2.png)
+![](https://raw.githubusercontent.com/jsullivan2847/Hide-and-Seek/main/public/Images/screenshots/gameplay_2.png)
 
 Hide and Seek was originally created  with vanilla ES6 Javascript, Jquery, HTML and CSS as a school project and later rebuilt from scratch as [React](https://react.dev/) application.
 
